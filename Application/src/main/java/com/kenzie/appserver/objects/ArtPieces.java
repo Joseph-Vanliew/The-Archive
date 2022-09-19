@@ -4,7 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "ArtPieces")
+@DynamoDBTable(tableName = "Art")
 public class ArtPieces {
 
     String artId;
@@ -14,12 +14,12 @@ public class ArtPieces {
     String medium;
     String type;
     boolean humiditySensitive;
-    String dateStored;
+    String timeStamp;
     String history;
     String timeSpentInStorage;
 
     public ArtPieces(String artId, String name, String artistName, String locationId, String medium, String type,
-                     boolean humiditySensitive, String dateStored, String history, String timeSpentInStorage) {
+                     boolean humiditySensitive, String timeStamp, String history, String timeSpentInStorage) {
         this.artId = artId;
         this.name = name;
         this.artistName = artistName;
@@ -27,7 +27,7 @@ public class ArtPieces {
         this.medium = medium;
         this.type = type;
         this.humiditySensitive = humiditySensitive;
-        this.dateStored = dateStored;
+        this.timeStamp = timeStamp;
         this.history = history;
         this.timeSpentInStorage = timeSpentInStorage;
     }
@@ -67,6 +67,7 @@ public class ArtPieces {
         this.artistName = artistName;
     }
 
+    @DynamoDBAttribute(attributeName = "locationId")
     public String getLocationId() {
         return locationId;
     }
@@ -75,6 +76,7 @@ public class ArtPieces {
         this.locationId = locationId;
     }
 
+    @DynamoDBAttribute(attributeName = "medium")
     public String getMedium() {
         return medium;
     }
@@ -83,6 +85,7 @@ public class ArtPieces {
         this.medium = medium;
     }
 
+    @DynamoDBAttribute(attributeName = "type")
     public String getType() {
         return type;
     }
@@ -91,6 +94,7 @@ public class ArtPieces {
         this.type = type;
     }
 
+    @DynamoDBAttribute(attributeName = "humiditySensitive")
     public boolean isHumiditySensitive() {
         return humiditySensitive;
     }
@@ -99,14 +103,16 @@ public class ArtPieces {
         this.humiditySensitive = humiditySensitive;
     }
 
-    public String getDateStored() {
-        return dateStored;
+    @DynamoDBAttribute(attributeName = "timeStamp")
+    public String getTimeStamp() {
+        return this.timeStamp;
     }
 
-    public void setDateStored(String dateStored) {
-        this.dateStored = dateStored;
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
+    @DynamoDBAttribute(attributeName = "history")
     public String getHistory() {
         return history;
     }
@@ -115,6 +121,7 @@ public class ArtPieces {
         this.history = history;
     }
 
+    @DynamoDBAttribute(attributeName = "timeSpentInStorage")
     public String getTimeSpentInStorage() {
         return timeSpentInStorage;
     }
@@ -133,7 +140,7 @@ public class ArtPieces {
                 ", medium='" + medium + '\'' +
                 ", type='" + type + '\'' +
                 ", humiditySensitive=" + humiditySensitive +
-                ", dateStored='" + dateStored + '\'' +
+                ", timeStamp='" + timeStamp + '\'' +
                 ", history='" + history + '\'' +
                 ", timeSpentInStorage='" + timeSpentInStorage + '\'' +
                 '}';

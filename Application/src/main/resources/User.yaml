@@ -1,0 +1,17 @@
+Resources:
+  UserTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: User
+      AttributeDefinitions:
+        - AttributeName: "userId"
+          AttributeType: "S"
+        - AttributeName: "timeStamp"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "userId"
+          KeyType: "HASH"
+        - AttributeName: "timeStamp"
+          KeyType: "RANGE"
+      BillingMode: "PAY_PER_REQUEST"
+

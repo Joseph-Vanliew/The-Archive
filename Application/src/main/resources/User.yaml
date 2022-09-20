@@ -14,4 +14,3 @@ Resources:
         - AttributeName: "timeStamp"
           KeyType: "RANGE"
       BillingMode: "PAY_PER_REQUEST"
-

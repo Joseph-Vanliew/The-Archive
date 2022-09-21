@@ -50,4 +50,5 @@ public class StorageUnitResponse {
     public void setAmountOfArtStored(int amountOfArtStored) {
         this.amountOfArtStored = amountOfArtStored;
     }
+    //TODO this is a comment remove later.
 }

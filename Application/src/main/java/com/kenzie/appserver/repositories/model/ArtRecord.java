@@ -1,11 +1,11 @@
-package com.kenzie.appserver.objects;
+package com.kenzie.appserver.repositories.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "Art")
-public class ArtPieces {
+@DynamoDBTable(tableName = "art")
+public class ArtRecord {
 
     String artId;
     String name;
@@ -18,27 +18,6 @@ public class ArtPieces {
     String history;
     String timeSpentInStorage;
 
-    public ArtPieces(String artId, String name, String artistName, String locationId, String medium, String type,
-                     boolean humiditySensitive, String timeStamp, String history, String timeSpentInStorage) {
-        this.artId = artId;
-        this.name = name;
-        this.artistName = artistName;
-        this.locationId = locationId;
-        this.medium = medium;
-        this.type = type;
-        this.humiditySensitive = humiditySensitive;
-        this.timeStamp = timeStamp;
-        this.history = history;
-        this.timeSpentInStorage = timeSpentInStorage;
-    }
-
-    public ArtPieces(String artId) {
-        this.artId = artId;
-
-    }
-
-    public ArtPieces() {
-    }
 
     @DynamoDBHashKey(attributeName = "artId")
     public String getArtId() {
@@ -145,4 +124,7 @@ public class ArtPieces {
                 ", timeSpentInStorage='" + timeSpentInStorage + '\'' +
                 '}';
     }
+
+
 }
+

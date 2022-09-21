@@ -1,14 +1,11 @@
 package com.kenzie.appserver.controller.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kenzie.appserver.service.model.ArtType;
 
-import javax.validation.constraints.NotEmpty;
-import java.time.LocalDate;
-
-public class ArtCreateRequest {
-    @NotEmpty
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ArtResponse {
     @JsonProperty("artId")
     String artId;
 
@@ -18,23 +15,20 @@ public class ArtCreateRequest {
     @JsonProperty("artistName")
     String artistName;
 
-    @NotEmpty
     @JsonProperty("locationId")
     String locationId;
 
     @JsonProperty("medium")
     String medium;
 
-    @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     @JsonProperty("type")
     ArtType type;
 
     @JsonProperty("humiditySensitive")
     boolean humiditySensitive;
 
-    @JsonFormat(shape =  JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("timeStamp")
-    LocalDate timeStamp;
+    String timeStamp;
 
     @JsonProperty("history")
     String history;
@@ -98,11 +92,11 @@ public class ArtCreateRequest {
         this.humiditySensitive = humiditySensitive;
     }
 
-    public LocalDate getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(LocalDate timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 

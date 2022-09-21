@@ -1,19 +1,18 @@
 package com.kenzie.appserver.service.model;
 
 public class Art {
-
         String artId;
         String name;
         String artistName;
         String locationId;
         String medium;
-        String type;
+        ArtType type;
         boolean humiditySensitive;
         String timeStamp;
         String history;
         String timeSpentInStorage;
 
-        public Art(String artId, String name, String artistName, String locationId, String medium, String type,
+        public Art(String artId, String name, String artistName, String locationId, String medium, ArtType type,
                          boolean humiditySensitive, String timeStamp, String history, String timeSpentInStorage) {
             this.artId = artId;
             this.name = name;
@@ -71,11 +70,11 @@ public class Art {
             this.medium = medium;
         }
 
-        public String getType() {
+        public ArtType getType() {
             return type;
         }
 
-        public void setType(String type) {
+        public void setType(ArtType type) {
             this.type = type;
         }
 

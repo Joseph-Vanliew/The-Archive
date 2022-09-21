@@ -1,23 +1,16 @@
-package com.kenzie.appserver.objects;
+package com.kenzie.appserver.repositories.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "User")
-public class User {
+@DynamoDBTable(tableName = "user")
+public class UserRecord {
+
     private String userId;
     private String name;
     private String dateJoined;
-
-    public User(String userId, String name, String dateJoined) {
-        this.userId = userId;
-        this.name = name;
-        this.dateJoined = dateJoined;
-    }
-    public User(){
-    }
 
     @DynamoDBHashKey(attributeName = "userId")
     public String getUserId() {
@@ -55,3 +48,4 @@ public class User {
                 '}';
     }
 }
+

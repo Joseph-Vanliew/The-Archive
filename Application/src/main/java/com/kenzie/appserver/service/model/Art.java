@@ -1,8 +1,6 @@
 package com.kenzie.appserver.service.model;
 
 public class Art {
-    //TODO Fix type to be of ArtType and String
-
         String artId;
         String name;
         String artistName;

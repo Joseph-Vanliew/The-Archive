@@ -18,10 +18,6 @@ public class StorageUnit {
         this.unitId = unitId;
     }
 
-    public StorageUnit() {
-
-    }
-
     public String getUnitId() {
         return unitId;
     }

@@ -29,10 +29,6 @@ public class Art {
 
         public Art(String artId) {
             this.artId = artId;
-
-        }
-
-        public Art() {
         }
 
         public String getArtId() {

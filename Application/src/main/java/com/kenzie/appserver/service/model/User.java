@@ -12,9 +12,6 @@ public class User {
         this.dateJoined = dateJoined;
     }
 
-    public User() {
-    }
-
     public String getUserId() {
         return userId;
     }

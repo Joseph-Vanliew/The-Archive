@@ -12,20 +12,13 @@ import java.util.List;
 
 @Service
 public class StorageUnitService {
-    private StorageUnitRepository storageUnitRepository;
+    private final StorageUnitRepository storageUnitRepository;
     // Add cache store class for data management...
 
 
     public StorageUnitService(StorageUnitRepository storageUnitRepository) {
         this.storageUnitRepository = storageUnitRepository;
     }
-
-    /* TODO methods to add include
-    * findAllStorageUnits DONE
-    * findByStorageUnitId DONE
-    * addNewStorageUnit DONE
-    * updateStorageUnit DONE
-    * deleteStorageUnit DONE */
 
     public List<StorageUnit> findAllStorageUnits() {
 

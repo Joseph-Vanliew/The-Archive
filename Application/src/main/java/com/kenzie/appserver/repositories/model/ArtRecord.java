@@ -3,6 +3,7 @@ package com.kenzie.appserver.repositories.model;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.kenzie.appserver.service.model.ArtType;
 
 @DynamoDBTable(tableName = "art")
 public class ArtRecord {
@@ -11,8 +12,7 @@ public class ArtRecord {
     String name;
     String artistName;
     String locationId;
-    String medium;
-    String type;
+    ArtType type;
     boolean humiditySensitive;
     String timeStamp;
     String history;
@@ -55,21 +55,12 @@ public class ArtRecord {
         this.locationId = locationId;
     }
 
-    @DynamoDBAttribute(attributeName = "medium")
-    public String getMedium() {
-        return medium;
-    }
-
-    public void setMedium(String medium) {
-        this.medium = medium;
-    }
-
     @DynamoDBAttribute(attributeName = "type")
-    public String getType() {
+    public ArtType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(ArtType type) {
         this.type = type;
     }
 
@@ -116,7 +107,6 @@ public class ArtRecord {
                 ", name='" + name + '\'' +
                 ", artistName='" + artistName + '\'' +
                 ", locationId='" + locationId + '\'' +
-                ", medium='" + medium + '\'' +
                 ", type='" + type + '\'' +
                 ", humiditySensitive=" + humiditySensitive +
                 ", timeStamp='" + timeStamp + '\'' +

@@ -18,9 +18,6 @@ public class ArtResponse {
     @JsonProperty("locationId")
     String locationId;
 
-    @JsonProperty("medium")
-    String medium;
-
     @JsonProperty("type")
     ArtType type;
 
@@ -66,14 +63,6 @@ public class ArtResponse {
 
     public void setLocationId(String locationId) {
         this.locationId = locationId;
-    }
-
-    public String getMedium() {
-        return medium;
-    }
-
-    public void setMedium(String medium) {
-        this.medium = medium;
     }
 
     public ArtType getType() {

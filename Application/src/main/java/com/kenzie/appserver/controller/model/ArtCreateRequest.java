@@ -22,9 +22,6 @@ public class ArtCreateRequest {
     @JsonProperty("locationId")
     String locationId;
 
-    @JsonProperty("medium")
-    String medium;
-
     @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     @JsonProperty("type")
     ArtType type;
@@ -72,14 +69,6 @@ public class ArtCreateRequest {
 
     public void setLocationId(String locationId) {
         this.locationId = locationId;
-    }
-
-    public String getMedium() {
-        return medium;
-    }
-
-    public void setMedium(String medium) {
-        this.medium = medium;
     }
 
     public ArtType getType() {

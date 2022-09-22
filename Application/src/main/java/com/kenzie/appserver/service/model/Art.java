@@ -5,20 +5,18 @@ public class Art {
         String name;
         String artistName;
         String locationId;
-        String medium;
         ArtType type;
         boolean humiditySensitive;
         String timeStamp;
         String history;
         String timeSpentInStorage;
 
-        public Art(String artId, String name, String artistName, String locationId, String medium, ArtType type,
+        public Art(String artId, String name, String artistName, String locationId, ArtType type,
                          boolean humiditySensitive, String timeStamp, String history, String timeSpentInStorage) {
             this.artId = artId;
             this.name = name;
             this.artistName = artistName;
             this.locationId = locationId;
-            this.medium = medium;
             this.type = type;
             this.humiditySensitive = humiditySensitive;
             this.timeStamp = timeStamp;
@@ -62,14 +60,6 @@ public class Art {
             this.locationId = locationId;
         }
 
-        public String getMedium() {
-            return medium;
-        }
-
-        public void setMedium(String medium) {
-            this.medium = medium;
-        }
-
         public ArtType getType() {
             return type;
         }
@@ -109,7 +99,5 @@ public class Art {
         public void setTimeSpentInStorage(String timeSpentInStorage) {
             this.timeSpentInStorage = timeSpentInStorage;
         }
-
-
 
 }

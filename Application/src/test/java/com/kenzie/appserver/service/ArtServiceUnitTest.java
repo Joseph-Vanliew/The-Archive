@@ -158,6 +158,7 @@ public class ArtServiceUnitTest {
 
     @Test
     void updateArt() {
+        //Given
         String artId = "art";
         String name = "artName";
         String artistName = "vanRandall";
@@ -180,14 +181,18 @@ public class ArtServiceUnitTest {
         artRecord.setHistory(art.getHistory());
         artRecord.setTimeSpentInStorage(art.getTimeSpentInStorage());
 
-        when(artRepository.existsById(artId)).thenReturn(true);
+        when(artRepository.existsById(art.getArtId())).thenReturn(true);
 
+        //When
+        artService.updateArt(art);
+
+        //Then
         verify(artRepository, times(1)).existsById(artRecord.getArtId());
     }
 
     @Test
     void findByLocationId() {
-        when(artRepository.findByLocationId("locationId"));
+
 
 
     }

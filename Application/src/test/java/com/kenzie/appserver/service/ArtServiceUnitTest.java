@@ -158,19 +158,31 @@ public class ArtServiceUnitTest {
 
     @Test
     void updateArt() {
+        String artId = "art";
+        String name = "artName";
+        String artistName = "vanRandall";
+        String locationId = "Russia";
+        ArtType type = ArtType.OIL;
+        boolean humiditySensitive = true;
+        String timeStamp = "now";
+        String history = "history";
+        String timeSpentInStorage = "1000 days";
 
-        // Arrange
-        ArgumentCaptor<ArtService> artArgumentCaptor = ArgumentCaptor.forClass(ArtService.class);
-        Art art = new Art("art");
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, history, timeSpentInStorage);
 
-        art.setArtId("newArtId");
-        // Act
-        artService.updateArt(art);
-        verify(artRepository).findById("newArtId");
-        // Assert
-        ArtService updated = artArgumentCaptor.getValue();
-        Assertions.assertEquals("art", art.getArtId());
-        // .....
+        ArtRecord artRecord = new ArtRecord();
+        artRecord.setArtId(art.getArtId());
+        artRecord.setName(art.getName());
+        artRecord.setArtistName(art.getArtistName());
+        artRecord.setLocationId(art.getLocationId());
+        artRecord.setType(art.getType());
+        artRecord.setTimeStamp(art.getTimeStamp());
+        artRecord.setHistory(art.getHistory());
+        artRecord.setTimeSpentInStorage(art.getTimeSpentInStorage());
+
+        when(artRepository.existsById(artId)).thenReturn(true);
+
+        verify(artRepository, times(1)).existsById(artRecord.getArtId());
     }
 
     @Test

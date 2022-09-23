@@ -3,6 +3,7 @@ package com.kenzie.appserver.service;
 import com.kenzie.appserver.repositories.ArtRepository;
 import com.kenzie.appserver.repositories.model.ArtRecord;
 import com.kenzie.appserver.service.model.Art;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ import java.util.List;
 @Service
 public class ArtService {
     private ArtRepository artRepository;
+
+    @Autowired
     public ArtService(ArtRepository artRepository) {
         this.artRepository = artRepository;
     }
@@ -30,6 +33,7 @@ public class ArtService {
                 .orElse(null);
         return artFromBackend;
     }
+
 
     public List<Art> findAllArt() {
         List<Art> allArt = new ArrayList<>();

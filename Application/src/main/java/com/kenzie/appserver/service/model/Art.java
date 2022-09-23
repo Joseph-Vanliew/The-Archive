@@ -11,6 +11,9 @@ public class Art {
         String history;
         String timeSpentInStorage;
 
+        public Art(){
+        }
+
         public Art(String artId, String name, String artistName, String locationId, ArtType type,
                          boolean humiditySensitive, String timeStamp, String history, String timeSpentInStorage) {
             this.artId = artId;

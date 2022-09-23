@@ -107,6 +107,7 @@ public class StorageUnitServiceTest {
         String storageUnitId = randomUUID().toString();
 
         StorageUnit storageUnit = new StorageUnit(storageUnitId);
+        storageUnit.setAmountOfArtStored(10);
 
         ArgumentCaptor<StorageUnitRecord> storageUnitRecordArgumentCaptor = ArgumentCaptor.forClass(StorageUnitRecord.class);
 
@@ -134,6 +135,7 @@ public class StorageUnitServiceTest {
         String storageId = "storageId";
 
         StorageUnit storageUnit = new StorageUnit(storageId);
+        storageUnit.setUnitId(storageId);
 
         StorageUnitRecord storageUnitRecord = new StorageUnitRecord();
         storageUnitRecord.setUnitId(storageUnit.getUnitId());

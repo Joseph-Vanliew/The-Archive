@@ -15,7 +15,6 @@ public class StorageUnitService {
     private final StorageUnitRepository storageUnitRepository;
     // Add cache store class for data management...
 
-
     public StorageUnitService(StorageUnitRepository storageUnitRepository) {
         this.storageUnitRepository = storageUnitRepository;
     }

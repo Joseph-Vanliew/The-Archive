@@ -10,7 +10,7 @@ import javax.validation.constraints.NotEmpty;
 public class StorageUnitCreateRequest {
 
     @NotEmpty
-    @JsonProperty("id")
+    @JsonProperty("unitId")
     private String unitId;
 
     @JsonFormat(shape = JsonFormat.Shape.OBJECT)

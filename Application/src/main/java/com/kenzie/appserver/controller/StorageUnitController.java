@@ -22,7 +22,7 @@ public class StorageUnitController {
         this.storageUnitService = storageUnitService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{unitId}")
     public ResponseEntity<StorageUnitResponse> get(@PathVariable("id") String unitId) {
 
         StorageUnit storageUnit = storageUnitService.findStorageUnitById(unitId);
@@ -76,8 +76,8 @@ public class StorageUnitController {
         return ResponseEntity.ok(storageUnitResponse);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity removeArt(@PathVariable("id") String unitId) {
+    @DeleteMapping("/{unitId}")
+    public ResponseEntity removeArt(@PathVariable("unitId") String unitId) {
         storageUnitService.deleteStorageUnit(unitId);
         return ResponseEntity.noContent().build();
     }

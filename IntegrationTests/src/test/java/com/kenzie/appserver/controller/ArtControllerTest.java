@@ -41,7 +41,7 @@ class ArtControllerTest {
     private final ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void getConcert_ConcertExists() throws Exception {
+    public void getArt_ArtExists() throws Exception {
         // GIVEN
         String artId = UUID.randomUUID().toString();
         String name = mockNeat.strings().valStr();

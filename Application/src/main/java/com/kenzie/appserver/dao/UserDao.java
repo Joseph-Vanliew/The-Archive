@@ -1,12 +1,9 @@
 package com.kenzie.appserver.dao;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 //import com.kenzie.appserver.objects.User;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class UserDAO {
+public class UserDao {
 //    private final DynamoDBMapper mapper;
 //
 //    public UserDAO(DynamoDBMapper mapper) {

@@ -1,18 +1,9 @@
 package com.kenzie.appserver.dao;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 //import com.kenzie.appserver.objects.ArtPieces;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-public class ArtPiecesDAO {
+public class ArtDao {
 //    private final DynamoDBMapper mapper;
 //
 //    public ArtPiecesDAO(DynamoDBMapper mapper) {

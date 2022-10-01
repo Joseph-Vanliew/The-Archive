@@ -43,8 +43,7 @@ public class ArtController {
         response.setType(art.getType());
         response.setHumiditySensitive(art.isHumiditySensitive());
         response.setTimeStamp(art.getTimeStamp());
-        response.setHistory(art.getHistory());
-        response.setTimeSpentInStorage(art.getTimeSpentInStorage());
+
 
         return ResponseEntity.created(URI.create("/art/" + response.getArtId())).body(response);
     }
@@ -73,9 +72,8 @@ public class ArtController {
                 artUpdateRequest.getLocationId(),
                 artUpdateRequest.getType(),
                 artUpdateRequest.isHumiditySensitive(),
-                artUpdateRequest.getTimeStamp().toString(),
-                artUpdateRequest.getHistory(),
-                artUpdateRequest.getTimeSpentInStorage());
+                artUpdateRequest.getTimeStamp().toString()
+        );
         artService.updateArt(art);
 
         ArtResponse artResponse = artResponse(art);
@@ -97,8 +95,7 @@ public class ArtController {
         response.setType(art.getType());
         response.setHumiditySensitive(art.isHumiditySensitive());
         response.setTimeStamp(art.getTimeStamp());
-        response.setHistory(art.getHistory());
-        response.setTimeSpentInStorage(art.getTimeSpentInStorage());
+
         return response;
     }
 }

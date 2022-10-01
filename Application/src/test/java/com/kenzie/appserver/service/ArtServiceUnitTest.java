@@ -2,19 +2,15 @@ package com.kenzie.appserver.service;
 
 import com.kenzie.appserver.repositories.ArtRepository;
 import com.kenzie.appserver.repositories.model.ArtRecord;
-import com.kenzie.appserver.service.ArtService;
 import com.kenzie.appserver.service.model.Art;
 import com.kenzie.appserver.service.model.ArtType;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +49,6 @@ public class ArtServiceUnitTest {
         Assertions.assertEquals(artRecord.getArtId(), art.getArtId(), "The art id matches");
         Assertions.assertEquals(artRecord.getName(), art.getName(), "The art name matches");
         Assertions.assertEquals(artRecord.getType(), art.getType(), "The art type matches");
-        Assertions.assertEquals(artRecord.getHistory(), art.getHistory(), "The art history  matches");
         Assertions.assertEquals(artRecord.isHumiditySensitive(), art.isHumiditySensitive(), "The art humidity matches");
     }
 
@@ -99,21 +94,17 @@ public class ArtServiceUnitTest {
             if (art.getArtId() == artRecord.getArtId()) {
                 Assertions.assertEquals(artRecord.getArtId(), art.getArtId(), "The art id matches");
                 Assertions.assertEquals(artRecord.getArtistName(), art.getArtistName(), "The artist name matches");
-                Assertions.assertEquals(artRecord.getHistory(), art.getHistory(), "The art history matches");
                 Assertions.assertEquals(artRecord.getName(), art.getName(), "The art name matches");
                 Assertions.assertEquals(artRecord.getLocationId(), art.getLocationId(), "The art location matches");
                 Assertions.assertEquals(artRecord.getType(), art.getType(), "The art type matches");
                 Assertions.assertEquals(artRecord.getTimeStamp(), art.getTimeStamp(), "The art timestamp matches");
-                Assertions.assertEquals(artRecord.getTimeSpentInStorage(), art.getTimeSpentInStorage(), "The time spent in storage matches");
             } else if (art.getArtId() == artRecord1.getArtId()) {
                 Assertions.assertEquals(artRecord1.getArtId(), art.getArtId(), "The art id matches");
                 Assertions.assertEquals(artRecord1.getArtistName(), art.getArtistName(), "The artist name matches");
-                Assertions.assertEquals(artRecord1.getHistory(), art.getHistory(), "The art history matches");
                 Assertions.assertEquals(artRecord1.getName(), art.getName(), "The art name matches");
                 Assertions.assertEquals(artRecord1.getLocationId(), art.getLocationId(), "The art location matches");
                 Assertions.assertEquals(artRecord1.getType(), art.getType(), "The art type matches");
                 Assertions.assertEquals(artRecord1.getTimeStamp(), art.getTimeStamp(), "The art timestamp matches");
-                Assertions.assertEquals(artRecord1.getTimeSpentInStorage(), art.getTimeSpentInStorage(), "The time spent in storage matches");
             } else {
                 Assertions.assertTrue(false, "Concert returned that was not in the records!");
             }
@@ -142,7 +133,6 @@ public class ArtServiceUnitTest {
         Assertions.assertNotNull(record, "The art record is returned");
         Assertions.assertEquals(record.getArtId(), art.getArtId(), "The art id matches");
         Assertions.assertEquals(record.getName(), art.getName(), "The art name matches");
-        Assertions.assertEquals(record.getHistory(), art.getHistory(), "The art history matches");
         Assertions.assertEquals(record.getArtistName(), art.getArtistName(), "The artist name matches");
         Assertions.assertEquals(record.getLocationId(), art.getLocationId(), "The art location matches");
 
@@ -169,7 +159,7 @@ public class ArtServiceUnitTest {
         String history = "history";
         String timeSpentInStorage = "1000 days";
 
-        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, history, timeSpentInStorage);
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
 
         ArtRecord artRecord = new ArtRecord();
         artRecord.setArtId(art.getArtId());
@@ -178,8 +168,7 @@ public class ArtServiceUnitTest {
         artRecord.setLocationId(art.getLocationId());
         artRecord.setType(art.getType());
         artRecord.setTimeStamp(art.getTimeStamp());
-        artRecord.setHistory(art.getHistory());
-        artRecord.setTimeSpentInStorage(art.getTimeSpentInStorage());
+
 
         when(artRepository.existsById(art.getArtId())).thenReturn(true);
 

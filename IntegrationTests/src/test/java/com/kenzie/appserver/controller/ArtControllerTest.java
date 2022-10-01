@@ -53,7 +53,7 @@ class ArtControllerTest {
         String history = mockNeat.strings().valStr();
         String timeSpentInStorage = mockNeat.strings().valStr();;
 
-        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, history, timeSpentInStorage);
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
         Art persistedArt = artService.addNewArt(art);
 
         // WHEN
@@ -158,7 +158,7 @@ class ArtControllerTest {
         String history = mockNeat.strings().valStr();
         String timeSpentInStorage = mockNeat.strings().valStr();;
 
-        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, history, timeSpentInStorage);
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
         Art persistedArt = artService.addNewArt(art);
 
         String newName = mockNeat.strings().valStr();
@@ -217,7 +217,7 @@ class ArtControllerTest {
         String history = mockNeat.strings().valStr();
         String timeSpentInStorage = mockNeat.strings().valStr();;
 
-        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, history, timeSpentInStorage);
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
         Art persistedArt = artService.addNewArt(art);
 
         // WHEN

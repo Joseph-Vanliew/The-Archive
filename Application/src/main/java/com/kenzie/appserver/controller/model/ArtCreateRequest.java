@@ -4,13 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kenzie.appserver.service.model.ArtType;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 public class ArtCreateRequest {
-    @NotEmpty
-    @JsonProperty("artId")
-    String artId;
 
     @JsonProperty("name")
     String name;
@@ -33,19 +31,9 @@ public class ArtCreateRequest {
     @JsonProperty("timeStamp")
     LocalDate timeStamp;
 
-    @JsonProperty("history")
-    String history;
-
-    @JsonProperty("timeSpentInStorage")
-    String timeSpentInStorage;
-
-    public String getArtId() {
-        return artId;
-    }
-
-    public void setArtId(String artId) {
-        this.artId = artId;
-    }
+    @Min(0)
+    @JsonProperty("price")
+    Double price;
 
     public String getName() {
         return name;
@@ -95,19 +83,11 @@ public class ArtCreateRequest {
         this.timeStamp = timeStamp;
     }
 
-    public String getHistory() {
-        return history;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setHistory(String history) {
-        this.history = history;
-    }
-
-    public String getTimeSpentInStorage() {
-        return timeSpentInStorage;
-    }
-
-    public void setTimeSpentInStorage(String timeSpentInStorage) {
-        this.timeSpentInStorage = timeSpentInStorage;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

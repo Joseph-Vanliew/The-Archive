@@ -1,0 +1,164 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Application {
+  + main(String[]): void
+}
+class Art {
+  ~ locationId: String
+  ~ timeSpentInStorage: String
+  ~ name: String
+  ~ artistName: String
+  ~ timeStamp: String
+  ~ humiditySensitive: boolean
+  ~ history: String
+  ~ type: ArtType
+  ~ artId: String
+  + getArtId(): String
+  + setHistory(String): void
+  + isHumiditySensitive(): boolean
+}
+class ArtController {
+  - artService: ArtService
+  - artResponse(Art): ArtResponse
+  + updateArt(ArtUpdateRequest): ResponseEntity<ArtResponse>
+  + removeArt(String): ResponseEntity
+  + getAllArt(): ResponseEntity<List<ArtResponse>>
+  + addNewArt(ArtCreateRequest): ResponseEntity<ArtResponse>
+  + get(String): ResponseEntity<ArtResponse>
+}
+class ArtCreateRequest {
+  ~ timeStamp: LocalDate
+  ~ locationId: String
+  ~ type: ArtType
+  ~ artId: String
+  ~ humiditySensitive: boolean
+  ~ timeSpentInStorage: String
+  ~ history: String
+  ~ name: String
+  ~ artistName: String
+}
+class ArtRecord {
+  ~ name: String
+  ~ artId: String
+  ~ history: String
+  ~ artistName: String
+  ~ timeStamp: String
+  ~ locationId: String
+  ~ timeSpentInStorage: String
+  ~ type: ArtType
+  ~ humiditySensitive: boolean
+}
+interface ArtRepository << interface >> {
+  + findByLocationId(String): List<ArtRecord>
+}
+class ArtResponse {
+  ~ artId: String
+  ~ artistName: String
+  ~ timeStamp: String
+  ~ timeSpentInStorage: String
+  ~ type: ArtType
+  ~ humiditySensitive: boolean
+  ~ name: String
+  ~ locationId: String
+  ~ history: String
+}
+class ArtService {
+  - artRepository: ArtRepository
+  + addNewArt(Art): Art
+  + updateArt(Art): void
+  + findArtById(String): Art
+  + removeArt(String): void
+  + findAllArt(): List<Art>
+  - artToRecordConverter(Art): ArtRecord
+  + findByLocationId(String): List<Art>
+}
+enum ArtType << enumeration >> {
+  + SCULPTURE:
+  + OIL:
+  + WATERCOLOR:
+  + GOUACHE:
+  + INK:
+  + ACRYLIC:
+  + values(): ArtType[]
+  + getRandomMedium(): ArtType
+  + valueOf(String): ArtType
+}
+class ArtUpdateRequest {
+  ~ history: String
+  ~ timeStamp: LocalDate
+  ~ name: String
+  ~ artId: String
+  ~ type: ArtType
+  ~ timeSpentInStorage: String
+  ~ humiditySensitive: boolean
+  ~ locationId: String
+  ~ artistName: String
+}
+class StorageUnit {
+  - unitId: String
+  - humiditySensitive: Boolean
+  - artType: ArtType
+  - amountOfArtStored: int
+}
+class StorageUnitController {
+  - storageUnitService: StorageUnitService
+  + removeArt(String): ResponseEntity
+  - storageResponse(StorageUnit): StorageUnitResponse
+  + updateStorageUnit(StorageUnitUpdateRequest): ResponseEntity<StorageUnitResponse>
+  + get(String): ResponseEntity<StorageUnitResponse>
+  + addNewStorageUnit(StorageUnitCreateRequest): ResponseEntity<StorageUnitResponse>
+  + getAllUnits(): ResponseEntity<List<StorageUnitResponse>>
+}
+class StorageUnitCreateRequest {
+  - humiditySensitive: Boolean
+  - unitId: String
+  - artType: ArtType
+  - amountOfArtStored: int
+}
+class StorageUnitRecord {
+  - unitId: String
+  - artType: ArtType
+  - humiditySensitive: Boolean
+  - amountOfArtStored: int
+}
+interface StorageUnitRepository << interface >>
+class StorageUnitResponse {
+  - unitId: String
+  - amountOfArtStored: int
+  - humiditySensitive: Boolean
+  - artType: ArtType
+}
+class StorageUnitService {
+  - storageUnitRepository: StorageUnitRepository
+  + findAllStorageUnits(): List<StorageUnit>
+  + addNewStorageUnit(StorageUnit): StorageUnit
+  + updateStorageUnit(StorageUnit): void
+  + deleteStorageUnit(String): void
+  + findStorageUnitById(String): StorageUnit
+}
+class StorageUnitUpdateRequest {
+  - humiditySensitive: Boolean
+  - amountOfArtStored: int
+  - artType: ArtType
+  - unitId: String
+}
+
+Art                      "1" *-[#595959,plain]-> "type\n1" ArtType
+ArtController            "1" *-[#595959,plain]-> "artService\n1" ArtService
+ArtCreateRequest         "1" *-[#595959,plain]-> "type\n1" ArtType
+ArtRecord                "1" *-[#595959,plain]-> "type\n1" ArtType
+ArtResponse              "1" *-[#595959,plain]-> "type\n1" ArtType
+ArtService               "1" *-[#595959,plain]-> "artRepository\n1" ArtRepository
+ArtUpdateRequest         "1" *-[#595959,plain]-> "type\n1" ArtType
+StorageUnit              "1" *-[#595959,plain]-> "artType\n1" ArtType
+StorageUnitController    "1" *-[#595959,plain]-> "storageUnitService\n1" StorageUnitService
+StorageUnitCreateRequest "1" *-[#595959,plain]-> "artType\n1" ArtType
+StorageUnitRecord        "1" *-[#595959,plain]-> "artType\n1" ArtType
+StorageUnitResponse      "1" *-[#595959,plain]-> "artType\n1" ArtType
+StorageUnitService       "1" *-[#595959,plain]-> "storageUnitRepository\n1" StorageUnitRepository
+StorageUnitUpdateRequest "1" *-[#595959,plain]-> "artType\n1" ArtType
+@enduml

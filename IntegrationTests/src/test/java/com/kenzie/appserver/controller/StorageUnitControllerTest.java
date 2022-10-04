@@ -84,7 +84,6 @@ class StorageUnitControllerTest {
         int amountOfArtStored = 10;
 
         StorageUnitCreateRequest storageUnitCreateRequest = new StorageUnitCreateRequest();
-        storageUnitCreateRequest.setUnitId(unitId);
         storageUnitCreateRequest.setArtType(artType);
         storageUnitCreateRequest.setHumiditySensitive(humiditySensitive);
         storageUnitCreateRequest.setAmountOfArtStored(amountOfArtStored);
@@ -159,9 +158,8 @@ class StorageUnitControllerTest {
         StorageUnit persistedStorageUnit = storageUnitService.addNewStorageUnit(storageUnit);
 
         // WHEN
-        mvc.perform(delete("/storageUnit{unitId}", persistedStorageUnit.getUnitId())
+        mvc.perform(delete("/storageUnit/{unitId}", persistedStorageUnit.getUnitId())
                         .accept(MediaType.APPLICATION_JSON))
-                // THEN
                 .andExpect(status().isNoContent());
         assertThat(storageUnitService.findStorageUnitById(unitId)).isNull();
     }

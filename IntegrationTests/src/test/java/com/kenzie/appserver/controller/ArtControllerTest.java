@@ -49,9 +49,10 @@ class ArtControllerTest {
         String type = mockNeat.strings().valStr();
         boolean humiditySensitive = true;
         String timeStamp = LocalDate.now().toString();
+        Double price = 10000.0;
 
 
-        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, price);
         Art persistedArt = artService.addNewArt(art);
 
         // WHEN
@@ -89,7 +90,6 @@ class ArtControllerTest {
     @Test
     public void createArt_CreateSuccessful() throws Exception {
         // GIVEN
-        String artId = UUID.randomUUID().toString();
         String name = mockNeat.strings().valStr();
         String artistName = mockNeat.strings().valStr();
         String locationId = mockNeat.strings().valStr();
@@ -98,7 +98,6 @@ class ArtControllerTest {
         String timeStamp = LocalDate.now().toString();
 
         ArtCreateRequest artCreateRequest = new ArtCreateRequest();
-        artCreateRequest.setArtId(artId);
         artCreateRequest.setName(name);
         artCreateRequest.setArtistName(artistName);
         artCreateRequest.setLocationId(locationId);
@@ -141,8 +140,9 @@ class ArtControllerTest {
         String type = mockNeat.strings().valStr();
         boolean humiditySensitive = true;
         String timeStamp = LocalDate.now().toString();
+        Double price = 15000.0;
 
-        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, price);
         artService.addNewArt(art);
 
         String newName = mockNeat.strings().valStr();
@@ -192,8 +192,9 @@ class ArtControllerTest {
         String type = mockNeat.strings().valStr();
         boolean humiditySensitive = true;
         String timeStamp = LocalDate.now().toString();
+        Double price = 20000.0;
 
-        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
+        Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp, price);
         Art persistedArt = artService.addNewArt(art);
 
         // WHEN

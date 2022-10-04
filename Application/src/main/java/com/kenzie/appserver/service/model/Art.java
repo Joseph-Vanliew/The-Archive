@@ -11,7 +11,7 @@ public class Art {
     Double price;
 
     public Art(String artId, String name, String artistName, String locationId, String type,
-               boolean humiditySensitive, String timeStamp) {
+               boolean humiditySensitive, String timeStamp, Double price) {
         this.artId = artId;
         this.name = name;
         this.artistName = artistName;

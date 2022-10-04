@@ -31,6 +31,10 @@ public class ArtCreateRequest {
     @JsonProperty("timeStamp")
     LocalDate timeStamp;
 
+    @JsonFormat
+    @JsonProperty("price")
+    Double price;
+
     public String getName() {
         return name;
     }
@@ -77,5 +81,13 @@ public class ArtCreateRequest {
 
     public void setTimeStamp(LocalDate timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

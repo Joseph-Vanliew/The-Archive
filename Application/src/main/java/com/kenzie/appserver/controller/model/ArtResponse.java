@@ -27,6 +27,8 @@ public class ArtResponse {
     @JsonProperty("timeStamp")
     String timeStamp;
 
+    @JsonProperty("price")
+    Double price;
 
     public String getArtId() {
         return artId;
@@ -83,5 +85,12 @@ public class ArtResponse {
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
+    
+    public Double getPrice() {
+        return price;
+    }
 
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

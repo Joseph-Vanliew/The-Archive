@@ -4,13 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 public class ArtCreateRequest {
-    @NotEmpty
-    @JsonProperty("artId")
-    String artId;
 
     @JsonProperty("name")
     String name;
@@ -32,15 +30,6 @@ public class ArtCreateRequest {
     @JsonFormat(shape =  JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("timeStamp")
     LocalDate timeStamp;
-
-
-    public String getArtId() {
-        return artId;
-    }
-
-    public void setArtId(String artId) {
-        this.artId = artId;
-    }
 
     public String getName() {
         return name;
@@ -89,6 +78,4 @@ public class ArtCreateRequest {
     public void setTimeStamp(LocalDate timeStamp) {
         this.timeStamp = timeStamp;
     }
-
-
 }

@@ -7,10 +7,6 @@ import javax.validation.constraints.NotEmpty;
 
 public class StorageUnitCreateRequest {
 
-    @NotEmpty
-    @JsonProperty("unitId")
-    private String unitId;
-
     @JsonProperty("artType")
     private String artType;
 
@@ -21,13 +17,6 @@ public class StorageUnitCreateRequest {
     @JsonProperty("amountOfArtStored")
     private int amountOfArtStored;
 
-    public String getUnitId() {
-        return unitId;
-    }
-
-    public void setUnitId(String unitId) {
-        this.unitId = unitId;
-    }
 
     public String getArtType() {
         return artType;

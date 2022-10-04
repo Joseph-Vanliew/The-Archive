@@ -97,7 +97,7 @@ public class ArtRecord {
                 ", type=" + type.toString() +
                 ", humiditySensitive=" + humiditySensitive +
                 ", timeStamp='" + timeStamp + '\'' +
-                ", price=" + price +
+                ", price='" + price + '\'' +
                 '}';
     }
 }

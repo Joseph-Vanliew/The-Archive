@@ -11,6 +11,8 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.UUID.randomUUID;
+
 
 @RestController
 @RequestMapping("/storageUnit")
@@ -35,14 +37,13 @@ public class StorageUnitController {
 
     @PostMapping
     public ResponseEntity<StorageUnitResponse> addNewStorageUnit(@RequestBody StorageUnitCreateRequest storageUnitCreateRequest) {
-        StorageUnit storageUnit = new StorageUnit(storageUnitCreateRequest.getUnitId());
+        StorageUnit storageUnit = new StorageUnit(randomUUID().toString(),
+                storageUnitCreateRequest.getArtType(),
+                storageUnitCreateRequest.getHumiditySensitive(),
+                storageUnitCreateRequest.getAmountOfArtStored());
         storageUnitService.addNewStorageUnit(storageUnit);
 
-        StorageUnitResponse storageUnitResponse = new StorageUnitResponse();
-        storageUnitResponse.setUnitId(storageUnit.getUnitId());
-        storageUnitResponse.setArtType(storageUnit.getArtType());
-        storageUnitResponse.setHumiditySensitive(storageUnit.getHumiditySensitive());
-        storageUnitResponse.setAmountOfArtStored(storageUnit.getAmountOfArtStored());
+        StorageUnitResponse storageUnitResponse = storageResponse(storageUnit);
 
         return ResponseEntity.created(URI.create("/storageUnit/" + storageUnitResponse.getUnitId())).body(storageUnitResponse);
     }

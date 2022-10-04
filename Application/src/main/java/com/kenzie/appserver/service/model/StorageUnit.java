@@ -3,11 +3,11 @@ package com.kenzie.appserver.service.model;
 public class StorageUnit {
 
     private String unitId;
-    private ArtType artType;
+    private String artType;
     private Boolean humiditySensitive;
     private int amountOfArtStored;
 
-    public StorageUnit(String unitId, ArtType artType, Boolean humiditySensitive, int amountOfArtStored) {
+    public StorageUnit(String unitId, String artType, Boolean humiditySensitive, int amountOfArtStored) {
         this.unitId = unitId;
         this.artType = artType;
         this.humiditySensitive = humiditySensitive;
@@ -26,11 +26,11 @@ public class StorageUnit {
         this.unitId = unitId;
     }
 
-    public ArtType getArtType() {
+    public String getArtType() {
         return artType;
     }
 
-    public void setArtType(ArtType artType) {
+    public void setArtType(String artType) {
         this.artType = artType;
     }
 

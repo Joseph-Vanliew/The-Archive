@@ -2,16 +2,16 @@ package com.kenzie.appserver.controller.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kenzie.appserver.service.model.ArtType;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StorageUnitResponse {
 
-    @JsonProperty("id")
+    @JsonProperty("unitId")
     private String unitId;
 
     @JsonProperty("artType")
-    private ArtType artType;
+    private String artType;
 
     @JsonProperty("humiditySensitive")
     private Boolean humiditySensitive;
@@ -27,11 +27,11 @@ public class StorageUnitResponse {
         this.unitId = unitId;
     }
 
-    public ArtType getArtType() {
+    public String getArtType() {
         return artType;
     }
 
-    public void setArtType(ArtType artType) {
+    public void setArtType(String artType) {
         this.artType = artType;
     }
 

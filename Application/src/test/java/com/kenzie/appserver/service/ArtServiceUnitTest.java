@@ -3,7 +3,6 @@ package com.kenzie.appserver.service;
 import com.kenzie.appserver.repositories.ArtRepository;
 import com.kenzie.appserver.repositories.model.ArtRecord;
 import com.kenzie.appserver.service.model.Art;
-import com.kenzie.appserver.service.model.ArtType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,9 +34,9 @@ public class ArtServiceUnitTest {
         ArtRecord artRecord = new ArtRecord();
         artRecord.setArtId(artId);
         artRecord.setName("artName");
+        artRecord.setType("oil");
         artRecord.setArtistName("artistName");
         artRecord.setLocationId(randomUUID().toString());
-        artRecord.setType(ArtType.OIL);
         artRecord.setHumiditySensitive(true);
         artRecord.setTimeStamp("2022-03-10");
         artRecord.setPrice(10.00);
@@ -63,9 +62,8 @@ public class ArtServiceUnitTest {
         artRecord.setHumiditySensitive(true);
         artRecord.setName("VanLouis");
         artRecord.setLocationId("Bahamas, BAHA");
-        artRecord.setType(ArtType.OIL);
+        artRecord.setType("oil");
         artRecord.setTimeStamp("09/08/1994");
-        artRecord.setPrice(1000.00);
 
         ArtRecord artRecord1 = new ArtRecord();
         artRecord1.setArtId("randomArt1");
@@ -73,7 +71,7 @@ public class ArtServiceUnitTest {
         artRecord1.setHumiditySensitive(false);
         artRecord1.setName("Chooch Da Arteest");
         artRecord1.setLocationId("Shreveport, LA");
-        artRecord1.setType(ArtType.ACRYLIC);
+        artRecord1.setType("acrylic");
         artRecord1.setTimeStamp("09/21/2022");
         artRecord1.setPrice(1000.00);
 
@@ -108,7 +106,7 @@ public class ArtServiceUnitTest {
                 Assertions.assertEquals(artRecord1.getTimeStamp(), art.getTimeStamp(), "The art timestamp matches");
                 Assertions.assertEquals(artRecord1.getPrice(), art.getPrice(), "The art prices match");
             } else {
-                Assertions.assertTrue(false, "Concert returned that was not in the records!");
+                Assertions.assertTrue(false, "Art returned that was not in the records!");
             }
         }
     }
@@ -155,7 +153,7 @@ public class ArtServiceUnitTest {
         String name = "artName";
         String artistName = "vanRandall";
         String locationId = "Russia";
-        ArtType type = ArtType.OIL;
+        String type = "oil";
         boolean humiditySensitive = true;
         String timeStamp = "now";
         Double price = 0.0;

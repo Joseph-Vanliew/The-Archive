@@ -1,25 +1,21 @@
 package com.kenzie.appserver.repositories.model;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import com.kenzie.appserver.service.model.ArtType;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-@DynamoDBTable(tableName = "art")
+
+@DynamoDBTable(tableName = "Art")
 public class ArtRecord {
 
     String artId;
     String name;
     String artistName;
     String locationId;
-    ArtType type;
+    String type;
     boolean humiditySensitive;
     String timeStamp;
-
     Double price;
 
-
-    @DynamoDBHashKey(attributeName = "artId")
+    @DynamoDBHashKey(attributeName = "ArtId")
     public String getArtId() {
         return artId;
     }
@@ -28,7 +24,7 @@ public class ArtRecord {
         this.artId = artId;
     }
 
-    @DynamoDBAttribute(attributeName = "name")
+    @DynamoDBAttribute(attributeName = "Name")
     public String getName() {
         return name;
     }
@@ -37,7 +33,7 @@ public class ArtRecord {
         this.name = name;
     }
 
-    @DynamoDBAttribute(attributeName = "artistName")
+    @DynamoDBAttribute(attributeName = "ArtistName")
     public String getArtistName() {
         return artistName;
     }
@@ -46,7 +42,7 @@ public class ArtRecord {
         this.artistName = artistName;
     }
 
-    @DynamoDBAttribute(attributeName = "locationId")
+    @DynamoDBAttribute(attributeName = "LocationId")
     public String getLocationId() {
         return locationId;
     }
@@ -55,16 +51,16 @@ public class ArtRecord {
         this.locationId = locationId;
     }
 
-    @DynamoDBAttribute(attributeName = "type")
-    public ArtType getType() {
+    @DynamoDBAttribute(attributeName = "Type")
+    public String getType() {
         return type;
     }
 
-    public void setType(ArtType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    @DynamoDBAttribute(attributeName = "humiditySensitive")
+    @DynamoDBAttribute(attributeName = "HumiditySensitive")
     public boolean isHumiditySensitive() {
         return humiditySensitive;
     }
@@ -73,7 +69,7 @@ public class ArtRecord {
         this.humiditySensitive = humiditySensitive;
     }
 
-    @DynamoDBAttribute(attributeName = "timeStamp")
+    @DynamoDBAttribute(attributeName = "TimeStamp")
     public String getTimeStamp() {
         return this.timeStamp;
     }
@@ -82,6 +78,7 @@ public class ArtRecord {
         this.timeStamp = timeStamp;
     }
 
+    @DynamoDBAttribute(attributeName = "Price")
     public Double getPrice() {
         return price;
     }
@@ -92,18 +89,16 @@ public class ArtRecord {
 
     @Override
     public String toString() {
-        return "ArtPieces{" +
+        return "ArtRecord{" +
                 "artId='" + artId + '\'' +
                 ", name='" + name + '\'' +
                 ", artistName='" + artistName + '\'' +
                 ", locationId='" + locationId + '\'' +
-                ", type='" + type + '\'' +
+                ", type=" + type.toString() +
                 ", humiditySensitive=" + humiditySensitive +
                 ", timeStamp='" + timeStamp + '\'' +
                 ", price='" + price + '\'' +
                 '}';
     }
-
-
 }
 

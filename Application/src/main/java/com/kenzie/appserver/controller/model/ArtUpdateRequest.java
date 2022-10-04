@@ -2,7 +2,7 @@ package com.kenzie.appserver.controller.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kenzie.appserver.service.model.ArtType;
+
 
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
@@ -22,9 +22,8 @@ public class ArtUpdateRequest {
     @JsonProperty("locationId")
     String locationId;
 
-    @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     @JsonProperty("type")
-    ArtType type;
+    String type;
 
     @JsonProperty("humiditySensitive")
     boolean humiditySensitive;
@@ -68,11 +67,11 @@ public class ArtUpdateRequest {
         this.locationId = locationId;
     }
 
-    public ArtType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(ArtType type) {
+    public void setType(String type) {
         this.type = type;
     }
 

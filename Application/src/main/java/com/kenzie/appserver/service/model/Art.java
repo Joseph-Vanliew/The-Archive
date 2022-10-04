@@ -5,13 +5,13 @@ public class Art {
     String name;
     String artistName;
     String locationId;
-    ArtType type;
+    String type;
     boolean humiditySensitive;
     String timeStamp;
     Double price;
 
-    public Art(String artId, String name, String artistName, String locationId, ArtType type,
-               boolean humiditySensitive, String timeStamp, Double price) {
+    public Art(String artId, String name, String artistName, String locationId, String type,
+               boolean humiditySensitive, String timeStamp) {
         this.artId = artId;
         this.name = name;
         this.artistName = artistName;
@@ -58,11 +58,11 @@ public class Art {
         this.locationId = locationId;
     }
 
-    public ArtType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(ArtType type) {
+    public void setType(String type) {
         this.type = type;
     }
 

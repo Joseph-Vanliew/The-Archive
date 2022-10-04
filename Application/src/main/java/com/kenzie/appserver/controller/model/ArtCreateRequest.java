@@ -2,7 +2,7 @@ package com.kenzie.appserver.controller.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kenzie.appserver.service.model.ArtType;
+
 
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
@@ -22,9 +22,9 @@ public class ArtCreateRequest {
     @JsonProperty("locationId")
     String locationId;
 
-    @JsonFormat(shape = JsonFormat.Shape.OBJECT)
+
     @JsonProperty("type")
-    ArtType type;
+    String type;
 
     @JsonProperty("humiditySensitive")
     boolean humiditySensitive;
@@ -33,11 +33,6 @@ public class ArtCreateRequest {
     @JsonProperty("timeStamp")
     LocalDate timeStamp;
 
-    @JsonProperty("history")
-    String history;
-
-    @JsonProperty("timeSpentInStorage")
-    String timeSpentInStorage;
 
     public String getArtId() {
         return artId;
@@ -71,11 +66,11 @@ public class ArtCreateRequest {
         this.locationId = locationId;
     }
 
-    public ArtType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(ArtType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -95,19 +90,5 @@ public class ArtCreateRequest {
         this.timeStamp = timeStamp;
     }
 
-    public String getHistory() {
-        return history;
-    }
 
-    public void setHistory(String history) {
-        this.history = history;
-    }
-
-    public String getTimeSpentInStorage() {
-        return timeSpentInStorage;
-    }
-
-    public void setTimeSpentInStorage(String timeSpentInStorage) {
-        this.timeSpentInStorage = timeSpentInStorage;
-    }
 }

@@ -3,7 +3,6 @@ package com.kenzie.appserver.service;
 import com.kenzie.appserver.repositories.ArtRepository;
 import com.kenzie.appserver.repositories.model.ArtRecord;
 import com.kenzie.appserver.service.model.Art;
-import com.kenzie.appserver.service.model.ArtType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,13 +19,12 @@ import static org.mockito.Mockito.*;
 public class ArtServiceUnitTest {
     private ArtRepository artRepository;
     private ArtService artService;
-    private Art art;
+
 
     @BeforeEach
     void setup() {
         artRepository = mock(ArtRepository.class);
         artService = new ArtService(artRepository);
-        art = new Art();
     }
 
     @Test
@@ -37,8 +35,7 @@ public class ArtServiceUnitTest {
         ArtRecord artRecord = new ArtRecord();
         artRecord.setArtId(artId);
         artRecord.setName("artName");
-        artRecord.setType(ArtType.OIL);
-        artRecord.setHistory("artHistory");
+        artRecord.setType("oil");
         artRecord.setHumiditySensitive(true);
         when(artRepository.findById(artRecord.getArtId())).thenReturn(Optional.of(artRecord));
         // WHEN
@@ -58,24 +55,20 @@ public class ArtServiceUnitTest {
         ArtRecord artRecord = new ArtRecord();
         artRecord.setArtId("randomArt");
         artRecord.setArtistName("Joe");
-        artRecord.setHistory("Made in 1942");
         artRecord.setHumiditySensitive(true);
         artRecord.setName("VanLouis");
         artRecord.setLocationId("Bahamas, BAHA");
-        artRecord.setType(ArtType.OIL);
+        artRecord.setType("oil");
         artRecord.setTimeStamp("09/08/1994");
-        artRecord.setTimeSpentInStorage("2100 days");
 
         ArtRecord artRecord1 = new ArtRecord();
         artRecord.setArtId("randomArt1");
         artRecord.setArtistName("Jimmy");
-        artRecord.setHistory("Made in 2022");
         artRecord.setHumiditySensitive(false);
         artRecord.setName("Chooch Da Arteest");
         artRecord.setLocationId("Shreveport, LA");
-        artRecord.setType(ArtType.ACRYLIC);
+        artRecord.setType("acrylic");
         artRecord.setTimeStamp("09/21/2022");
-        artRecord.setTimeSpentInStorage("1 day");
 
         List<ArtRecord> artRecordList = new ArrayList<>();
         artRecordList.add(artRecord);
@@ -106,7 +99,7 @@ public class ArtServiceUnitTest {
                 Assertions.assertEquals(artRecord1.getType(), art.getType(), "The art type matches");
                 Assertions.assertEquals(artRecord1.getTimeStamp(), art.getTimeStamp(), "The art timestamp matches");
             } else {
-                Assertions.assertTrue(false, "Concert returned that was not in the records!");
+                Assertions.assertTrue(false, "Art returned that was not in the records!");
             }
         }
     }
@@ -153,11 +146,9 @@ public class ArtServiceUnitTest {
         String name = "artName";
         String artistName = "vanRandall";
         String locationId = "Russia";
-        ArtType type = ArtType.OIL;
+        String type = "oil";
         boolean humiditySensitive = true;
         String timeStamp = "now";
-        String history = "history";
-        String timeSpentInStorage = "1000 days";
 
         Art art = new Art(artId, name, artistName, locationId, type, humiditySensitive, timeStamp);
 

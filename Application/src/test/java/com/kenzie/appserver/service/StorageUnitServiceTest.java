@@ -1,14 +1,11 @@
 package com.kenzie.appserver.service;
 
-import com.kenzie.appserver.repositories.ArtRepository;
+
 import com.kenzie.appserver.repositories.StorageUnitRepository;
 import com.kenzie.appserver.repositories.model.StorageUnitRecord;
-import com.kenzie.appserver.repositories.model.StorageUnitRecord;
-import com.kenzie.appserver.repositories.model.StorageUnitRecord;
-import com.kenzie.appserver.service.model.Art;
 import com.kenzie.appserver.service.model.StorageUnit;
-import com.kenzie.appserver.service.model.ArtType;
-import com.kenzie.appserver.service.model.StorageUnit;
+
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,13 +33,13 @@ public class StorageUnitServiceTest {
     void findAllStorageUnitsTest() {
         StorageUnitRecord storageUnitRecord = new StorageUnitRecord();
         storageUnitRecord.setUnitId("storageUnitID");
-        storageUnitRecord.setArtType(ArtType.INK);
+        storageUnitRecord.setArtType("ink");
         storageUnitRecord.setAmountOfArtStored(1);
         storageUnitRecord.setHumiditySensitive(true);
 
         StorageUnitRecord storageUnitRecord1 = new StorageUnitRecord();
         storageUnitRecord1.setUnitId("storageUnitID1");
-        storageUnitRecord1.setArtType(ArtType.INK);
+        storageUnitRecord1.setArtType("ink");
         storageUnitRecord1.setAmountOfArtStored(10);
         storageUnitRecord1.setHumiditySensitive(false);
 
@@ -85,7 +82,7 @@ public class StorageUnitServiceTest {
         StorageUnitRecord storageUnitRecord = new StorageUnitRecord();
         storageUnitRecord.setUnitId(storageUnitId);
         storageUnitRecord.setHumiditySensitive(true);
-        storageUnitRecord.setArtType(ArtType.OIL);
+        storageUnitRecord.setArtType("ink");
         storageUnitRecord.setAmountOfArtStored(20);
 
         when(storageUnitRepository.findById(storageUnitRecord.getUnitId())).thenReturn(Optional.of(storageUnitRecord));

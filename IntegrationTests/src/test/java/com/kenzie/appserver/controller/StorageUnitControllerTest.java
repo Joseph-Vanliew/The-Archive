@@ -6,7 +6,7 @@ import com.kenzie.appserver.IntegrationTest;
 import com.kenzie.appserver.controller.model.StorageUnitCreateRequest;
 import com.kenzie.appserver.controller.model.StorageUnitUpdateRequest;
 import com.kenzie.appserver.service.StorageUnitService;
-import com.kenzie.appserver.service.model.ArtType;
+
 import com.kenzie.appserver.service.model.StorageUnit;
 import net.andreinc.mockneat.MockNeat;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.UUID;
 
-import static com.kenzie.appserver.service.model.ArtType.getRandomMedium;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -43,7 +42,7 @@ class StorageUnitControllerTest {
     public void getStorageUnit_StorageUnitExists() throws Exception {
         // GIVEN
         String unitId = UUID.randomUUID().toString();
-        ArtType artType = getRandomMedium();
+        String artType = mockNeat.strings().valStr();
         boolean humiditySensitive = true;
         int amountOfArtStored = 10;
 
@@ -80,7 +79,7 @@ class StorageUnitControllerTest {
     public void createStorageUnit_CreateSuccessful() throws Exception {
         // GIVEN
         String unitId = UUID.randomUUID().toString();
-        ArtType artType = getRandomMedium();
+        String artType = mockNeat.strings().valStr();
         boolean humiditySensitive = true;
         int amountOfArtStored = 10;
 
@@ -113,12 +112,12 @@ class StorageUnitControllerTest {
     public void updateStorageUnit_PutSuccessful() throws Exception {
         // GIVEN
         String unitId = UUID.randomUUID().toString();
-        ArtType artType = getRandomMedium();
+        String artType = mockNeat.strings().valStr();
         boolean humiditySensitive = true;
         int amountOfArtStored = 10;
 
         StorageUnit storageUnit = new StorageUnit(unitId, artType, humiditySensitive, amountOfArtStored);
-        StorageUnit persistedStorageUnit = storageUnitService.addNewStorageUnit(storageUnit);
+        storageUnitService.addNewStorageUnit(storageUnit);
 
         boolean newHumiditySensitive = false;
         int newAmountOfArtStored = 15;
@@ -152,7 +151,7 @@ class StorageUnitControllerTest {
     public void deleteStorageUnit_DeleteSuccessful() throws Exception {
         // GIVEN
         String unitId = UUID.randomUUID().toString();
-        ArtType artType = getRandomMedium();
+        String artType = mockNeat.strings().valStr();
         boolean humiditySensitive = true;
         int amountOfArtStored = 10;
 

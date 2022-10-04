@@ -1,21 +1,19 @@
 package com.kenzie.appserver.controller.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kenzie.appserver.service.model.ArtType;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 public class StorageUnitUpdateRequest {
 
     @NotEmpty
-    @JsonProperty("id")
+    @JsonProperty("unitId")
     private String unitId;
 
-    @JsonFormat(shape = JsonFormat.Shape.OBJECT)
+
     @JsonProperty("artType")
-    private ArtType artType;
+    private String artType;
 
     @JsonProperty("humiditySensitive")
     private Boolean humiditySensitive;
@@ -32,11 +30,11 @@ public class StorageUnitUpdateRequest {
         this.unitId = unitId;
     }
 
-    public ArtType getArtType() {
+    public String getArtType() {
         return artType;
     }
 
-    public void setArtType(ArtType artType) {
+    public void setArtType(String artType) {
         this.artType = artType;
     }
 

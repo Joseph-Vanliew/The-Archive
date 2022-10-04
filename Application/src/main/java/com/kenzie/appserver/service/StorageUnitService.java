@@ -1,10 +1,9 @@
 package com.kenzie.appserver.service;
 
-import com.amazonaws.services.ec2.model.Storage;
+
 import com.kenzie.appserver.repositories.StorageUnitRepository;
 import com.kenzie.appserver.repositories.model.StorageUnitRecord;
 import com.kenzie.appserver.service.model.StorageUnit;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

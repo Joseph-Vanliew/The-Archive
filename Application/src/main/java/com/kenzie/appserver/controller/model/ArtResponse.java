@@ -2,7 +2,7 @@ package com.kenzie.appserver.controller.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kenzie.appserver.service.model.ArtType;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ArtResponse {
@@ -19,7 +19,7 @@ public class ArtResponse {
     String locationId;
 
     @JsonProperty("type")
-    ArtType type;
+    String type;
 
     @JsonProperty("humiditySensitive")
     boolean humiditySensitive;
@@ -27,11 +27,6 @@ public class ArtResponse {
     @JsonProperty("timeStamp")
     String timeStamp;
 
-    @JsonProperty("history")
-    String history;
-
-    @JsonProperty("timeSpentInStorage")
-    String timeSpentInStorage;
 
     public String getArtId() {
         return artId;
@@ -65,11 +60,11 @@ public class ArtResponse {
         this.locationId = locationId;
     }
 
-    public ArtType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(ArtType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -89,19 +84,4 @@ public class ArtResponse {
         this.timeStamp = timeStamp;
     }
 
-    public String getHistory() {
-        return history;
-    }
-
-    public void setHistory(String history) {
-        this.history = history;
-    }
-
-    public String getTimeSpentInStorage() {
-        return timeSpentInStorage;
-    }
-
-    public void setTimeSpentInStorage(String timeSpentInStorage) {
-        this.timeSpentInStorage = timeSpentInStorage;
-    }
 }

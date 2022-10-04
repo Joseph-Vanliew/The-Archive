@@ -16,14 +16,14 @@ import java.util.List;
 @RequestMapping("/storageUnit")
 public class StorageUnitController {
 
-    private StorageUnitService storageUnitService;
+    private final StorageUnitService storageUnitService;
 
     StorageUnitController(StorageUnitService storageUnitService) {
         this.storageUnitService = storageUnitService;
     }
 
     @GetMapping("/{unitId}")
-    public ResponseEntity<StorageUnitResponse> get(@PathVariable("id") String unitId) {
+    public ResponseEntity<StorageUnitResponse> get(@PathVariable("unitId") String unitId) {
 
         StorageUnit storageUnit = storageUnitService.findStorageUnitById(unitId);
         if (storageUnit == null) {

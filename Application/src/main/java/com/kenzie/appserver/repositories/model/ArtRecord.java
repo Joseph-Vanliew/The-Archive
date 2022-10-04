@@ -15,8 +15,8 @@ public class ArtRecord {
     ArtType type;
     boolean humiditySensitive;
     String timeStamp;
-    String history;
-    String timeSpentInStorage;
+
+    Double price;
 
 
     @DynamoDBHashKey(attributeName = "artId")
@@ -82,22 +82,12 @@ public class ArtRecord {
         this.timeStamp = timeStamp;
     }
 
-    @DynamoDBAttribute(attributeName = "history")
-    public String getHistory() {
-        return history;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setHistory(String history) {
-        this.history = history;
-    }
-
-    @DynamoDBAttribute(attributeName = "timeSpentInStorage")
-    public String getTimeSpentInStorage() {
-        return timeSpentInStorage;
-    }
-
-    public void setTimeSpentInStorage(String timeSpentInStorage) {
-        this.timeSpentInStorage = timeSpentInStorage;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     @Override
@@ -110,8 +100,7 @@ public class ArtRecord {
                 ", type='" + type + '\'' +
                 ", humiditySensitive=" + humiditySensitive +
                 ", timeStamp='" + timeStamp + '\'' +
-                ", history='" + history + '\'' +
-                ", timeSpentInStorage='" + timeSpentInStorage + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 

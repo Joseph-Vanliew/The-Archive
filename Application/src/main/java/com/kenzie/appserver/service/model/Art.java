@@ -10,11 +10,8 @@ public class Art {
     String timeStamp;
     Double price;
 
-    public Art() {
-    }
-
     public Art(String artId, String name, String artistName, String locationId, ArtType type,
-               boolean humiditySensitive, String timeStamp) {
+               boolean humiditySensitive, String timeStamp, Double price) {
         this.artId = artId;
         this.name = name;
         this.artistName = artistName;

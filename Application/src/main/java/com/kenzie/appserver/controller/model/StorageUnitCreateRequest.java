@@ -9,10 +9,6 @@ import javax.validation.constraints.NotEmpty;
 
 public class StorageUnitCreateRequest {
 
-    @NotEmpty
-    @JsonProperty("unitId")
-    private String unitId;
-
     @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     @JsonProperty("artType")
     private ArtType artType;
@@ -23,14 +19,6 @@ public class StorageUnitCreateRequest {
     @Min(0)
     @JsonProperty("amountOfArtStored")
     private int amountOfArtStored;
-
-    public String getUnitId() {
-        return unitId;
-    }
-
-    public void setUnitId(String unitId) {
-        this.unitId = unitId;
-    }
 
     public ArtType getArtType() {
         return artType;

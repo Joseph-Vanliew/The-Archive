@@ -27,11 +27,8 @@ public class ArtResponse {
     @JsonProperty("timeStamp")
     String timeStamp;
 
-    @JsonProperty("history")
-    String history;
-
-    @JsonProperty("timeSpentInStorage")
-    String timeSpentInStorage;
+    @JsonProperty("price")
+    Double price;
 
     public String getArtId() {
         return artId;
@@ -89,19 +86,11 @@ public class ArtResponse {
         this.timeStamp = timeStamp;
     }
 
-    public String getHistory() {
-        return history;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setHistory(String history) {
-        this.history = history;
-    }
-
-    public String getTimeSpentInStorage() {
-        return timeSpentInStorage;
-    }
-
-    public void setTimeSpentInStorage(String timeSpentInStorage) {
-        this.timeSpentInStorage = timeSpentInStorage;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

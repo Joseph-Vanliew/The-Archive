@@ -9,6 +9,8 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.UUID.randomUUID;
+
 @RestController
 @RequestMapping("/art")
 public class ArtController {
@@ -32,18 +34,19 @@ public class ArtController {
 
     @PostMapping
     public ResponseEntity<ArtResponse> addNewArt(@RequestBody ArtCreateRequest artCreateRequest) {
-        Art art = new Art(artCreateRequest.getArtId());
+        Art art = new Art(randomUUID().toString(),
+                artCreateRequest.getName(),
+                artCreateRequest.getArtistName(),
+                artCreateRequest.getLocationId(),
+                artCreateRequest.getType(),
+                artCreateRequest.isHumiditySensitive(),
+                artCreateRequest.getTimeStamp().toString(),
+                artCreateRequest.getPrice()
+        );
+
         artService.addNewArt(art);
 
-        ArtResponse response = new ArtResponse();
-        response.setArtId(art.getArtId());
-        response.setName(art.getName());
-        response.setArtistName(art.getArtistName());
-        response.setLocationId(art.getLocationId());
-        response.setType(art.getType());
-        response.setHumiditySensitive(art.isHumiditySensitive());
-        response.setTimeStamp(art.getTimeStamp());
-
+        ArtResponse response = artResponse(art);
 
         return ResponseEntity.created(URI.create("/art/" + response.getArtId())).body(response);
     }
@@ -72,7 +75,8 @@ public class ArtController {
                 artUpdateRequest.getLocationId(),
                 artUpdateRequest.getType(),
                 artUpdateRequest.isHumiditySensitive(),
-                artUpdateRequest.getTimeStamp().toString()
+                artUpdateRequest.getTimeStamp().toString(),
+                artUpdateRequest.getPrice()
         );
         artService.updateArt(art);
 

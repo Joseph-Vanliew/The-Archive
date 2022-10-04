@@ -27,7 +27,8 @@ public class ArtService {
                         art.getLocationId(),
                         art.getType(),
                         art.isHumiditySensitive(),
-                        art.getTimeStamp()
+                        art.getTimeStamp(),
+                        art.getPrice()
                 ))
                 .orElse(null);
         return artFromBackend;
@@ -45,7 +46,8 @@ public class ArtService {
                     record.getLocationId(),
                     record.getType(),
                     record.isHumiditySensitive(),
-                    record.getTimeStamp()
+                    record.getTimeStamp(),
+                    record.getPrice()
             ));
         }
 
@@ -62,7 +64,8 @@ public class ArtService {
                     record.getLocationId(),
                     record.getType(),
                     record.isHumiditySensitive(),
-                    record.getTimeStamp()
+                    record.getTimeStamp(),
+                    record.getPrice()
             ));
         }
         return art;
@@ -94,6 +97,7 @@ public class ArtService {
         record.setType(art.getType());
         record.setHumiditySensitive(art.isHumiditySensitive());
         record.setTimeStamp(art.getTimeStamp());
+        record.setPrice(art.getPrice());
 
         return record;
     }
